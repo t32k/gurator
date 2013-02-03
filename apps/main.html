@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="en"> 
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gurator</title>
+	<link href="stylesheets/app.css" rel="stylesheet">
+  <link href="stylesheets/highlight.css" rel="stylesheet">
+
+  <script src="libs/highlight.js"></script>
+  <script src="libs/jquery.js"></script>
+  <script src="libs/underscore.js"></script>
+  <script src="libs/backbone.js"></script>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+
+  <script type="text/template" id="tmpl-js-gists">
+    <hr class="dashed">
+    <div class="row item">
+      <div class="two columns">
+        <a href="<% print('https://gist.github.com/' + user.login); %>"><img src="<%= user.avatar_url %>" width="80" height="80" alt="<%= user.login %>"></a>
+      </div>
+      <div class="ten columns">
+        <h4><a href="#" data-src="<%= url %>"><%= description %></a></h4>
+        <ul class="block-grid three-up">
+          <li>from: <a href="<% print('https://gist.github.com/' + user.login); %>"><%= user.login %></a></li>
+          <li>updated: <a href="<%= html_url %>"><% print(updated_at.slice(0, 10)) %></a></li>
+          <li>file: Markdown</li>
+        </ul>
+        <div href="#" class="button tiny split secondary dropdown">
+          <a href="#">Add to lists</a>
+            <span></span>
+          <ul>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Ruby</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Recipe</a></li>
+            <li class="divider" style="margin:0;height:1px"></li>
+            <li><a href="#" style="color:#3c2a75">+ New list</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </script>
+
+</head>
+<body>
+  <!-- // HEADER
+  ======================================== -->
+  <div class="header">  </div>
+    <div class="row">
+    <div class="twelve columns">
+    <h2>Gurator<span class="subheader"> curator for gists.</span></h2>
+    <hr>
+    </div>
+    </div>
+
+
+  <!-- // CONTENT
+  ======================================== -->
+  <div class="row">
+    <!-- // Sidebar ====================== -->
+    <nav class="three columns">
+      <ul class="tabs vertical">
+        <li><a href="">Starred All</a></li>
+        <li><a href="">JavaScript</a></li>
+        <li><a href="">Ruby</a></li>
+        <li><a href="">Blog</a></li>
+        <li><a href="">Recipe</a></li>
+        <li class="add"><a href="">+ New List</a></li>
+      </ul>
+      <img src="images/octocat.png" alt="">
+    </nav>
+
+    <!-- // Main ====================== -->
+    <div class="nine columns" role="content">
+      <div class="row">
+        <div class="ten columns"><h2><img src="images/star.png" width="30" height="30" alt=""> Starred All</h2></div>
+        <div class="two columns"><a class="round success button" href="#" style="margin-top:18px">Share</a></div>
+      </div>
+
+      <div id="js-gists">
+        <div id="loadingProgressG" class="initial-spiner">
+          <div id="loadingProgressG_1" class="loadingProgressG"></div>
+        </div>
+      </div>
+
+    <div id="js-gist-preview"><!-- PREVIEW CONTAINER --></div>
+
+    </div>
+ </div>
+
+<!-- // FOOTER
+======================================== -->
+<footer class="row">
+  <div class="twelve columns">
+    <hr>
+    <p>&copy; 2013 Gurator</p>
+  </div>
+</footer>
+
+</body>
+</html>
